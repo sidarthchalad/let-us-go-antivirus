@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Let Go Antivirus - No Entry Warning</title>
+  <style>
+    body {
+      background-color: black;
+      color: red;
+      font-family: 'Arial Black', sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+
+    .warning {
+      font-size: 50px;
+      border: 5px solid red;
+      padding: 20px;
+      display: inline-block;
+      margin-bottom: 30px;
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% {opacity: 1;}
+      50% {opacity: 0.5;}
+    }
+
+    .form-container {
+      background-color: #1a1a1a;
+      padding: 20px;
+      border: 3px solid red;
+      display: inline-block;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      width: 300px;
+      border: 2px solid red;
+      background-color: black;
+      color: white;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin-left: 10px;
+      background-color: red;
+      border: none;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .result {
+      margin-top: 20px;
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="warning">🚫 NO ENTRY - VIRUS ZONE 🚫</div>
+
+  <div class="form-container">
+    <p>Enter file name or URL to check for virus:</p>
+    <input type="text" id="inputField" placeholder="example.com or file.exe">
+    <button onclick="checkVirus()">Check</button>
+    <div class="result" id="resultArea"></div>
+  </div>
+
+  <script>
+    function checkVirus() {
+      const input = document.getElementById('inputField').value;
+      const resultArea = document.getElementById('resultArea');
+      if (input.trim() === '') {
+        resultArea.textContent = "⚠️ Please enter a valid input!";
+      } else {
+        // Fake virus check logic
+        resultArea.textContent = "🔍 Scanning...";
+        setTimeout(() => {
+          resultArea.textContent = "✅ No Virus Detected in '" + input + "'";
+        }, 2000);
+      }
+    }
+  </script>
+</body>
+</html>
